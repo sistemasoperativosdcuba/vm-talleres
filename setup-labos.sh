@@ -2,11 +2,11 @@
 
 LOCALBIN="$HOME/.local/bin"
 TMP="$HOME/.local/tmp"
-DIRDESCARGA="/media/libre/ssoo-talleres"
+PROYECTO="$HOME/ssoo-taller3"
 
 mkdir -p "$LOCALBIN"
 mkdir -p "$TMP"
-mkdir -p "$DIRDESCARGA"
+mkdir -p "$PROYECTO"
 
 wget https://releases.hashicorp.com/vagrant/2.3.0/vagrant_2.3.0_linux_amd64.zip --directory-prefix="$TMP" -N
 
@@ -28,5 +28,10 @@ chmod +x setup-env-talleres
 
 ./setup-env-talleres
 
-vagrant box add --name sistemasoperativosdcuba/talleres boxdownload/package.box
+vagrant box add --name sistemasoperativosdcuba/talleres --box-version 0.1.0 boxdownload/package.box
 
+cd "$PROYECTO"
+wget https://github.com/sistemasoperativosdcuba/talleres/raw/main/Vagrantfile-labos -N
+
+echo "Listo. Podés ejecutar el comando 'vagrant up' y luego 'vagrant ssh' para abrir una consola en la VM."
+echo "Los archivos que coloques en el directorio $PROYECTO los podrás acceder desde dentro de la VM en el directorio /vagrant"
