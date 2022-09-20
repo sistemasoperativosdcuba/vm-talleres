@@ -1,0 +1,17 @@
+{
+   "name": "sistemasoperativosdcuba/talleres",
+   "description": "VM Debian 11 con herramientas necesarias para los talleres.",
+   "versions": [
+     {
+       "version": "0.1.0",
+       "providers": [
+         {
+           "name": "virtualbox",
+           "url": "./package.box",
+           "checksum_type": "sha512",
+           "checksum": "e29493439b47e60684b22c41c39e1af6a25485c7cbee5c6c65f7c6226af268bdc967b5145bb4414d4c8db7d60ad490979a0a49c2e14d7a794d30e26006612544"
+         }
+       ]
+     }
+   ]
+ }

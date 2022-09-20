@@ -28,7 +28,8 @@ chmod +x setup-env-talleres
 
 ./setup-env-talleres
 
-vagrant box add --name sistemasoperativosdcuba/talleres boxdownload/package.box
+wget --directory-prefix="$TMP" -N https://github.com/sistemasoperativosdcuba/talleres/raw/main/labo-box-metadata.json
+vagrant box add labo-box-metadata.json
 
 cd "$PROYECTO"
 wget -O Vagrantfile https://github.com/sistemasoperativosdcuba/talleres/raw/main/Vagrantfile-labos
