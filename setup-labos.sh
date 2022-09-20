@@ -31,7 +31,7 @@ chmod +x setup-env-talleres
 vagrant box add --name sistemasoperativosdcuba/talleres --box-version 0.1.0 boxdownload/package.box
 
 cd "$PROYECTO"
-wget https://github.com/sistemasoperativosdcuba/talleres/raw/main/Vagrantfile-labos -N
+wget https://github.com/sistemasoperativosdcuba/talleres/raw/main/Vagrantfile-labos -O Vagrantfile
 
 echo "Listo. Podés ejecutar el comando 'vagrant up' y luego 'vagrant ssh' para abrir una consola en la VM."
 echo "Los archivos que coloques en el directorio $PROYECTO los podrás acceder desde dentro de la VM en el directorio /vagrant"
