@@ -28,7 +28,7 @@ chmod +x setup-env-talleres
 
 ./setup-env-talleres
 
-vagrant box add --name sistemasoperativosdcuba/talleres --box-version 0.1.0 boxdownload/package.box
+vagrant box add --name sistemasoperativosdcuba/talleres boxdownload/package.box
 
 cd "$PROYECTO"
 wget -O Vagrantfile https://github.com/sistemasoperativosdcuba/talleres/raw/main/Vagrantfile-labos
