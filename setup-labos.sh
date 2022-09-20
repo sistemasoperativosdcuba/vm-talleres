@@ -34,5 +34,9 @@ vagrant box add labo-box-metadata.json
 cd "$PROYECTO"
 wget -O Vagrantfile https://github.com/sistemasoperativosdcuba/vm-talleres/raw/main/Vagrantfile-labos
 
+if ! git clone "https://github.com/sistemasoperativosdcuba/talleres" "${PROYECTO/talleres}" 2>/dev/null && [ -d "${PROYECTO/talleres}" ] ; then
+    echo "Falló el git clone del proyecto de los talleres."
+fi
+
 echo "Listo. Podés ejecutar el comando 'vagrant up' y luego 'vagrant ssh' para abrir una consola en la VM."
 echo "Los archivos que coloques en el directorio $PROYECTO los podrás acceder desde dentro de la VM en el directorio /vagrant"
