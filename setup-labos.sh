@@ -4,6 +4,9 @@ LOCALBIN="$HOME/.local/bin"
 TMP="$HOME/.local/tmp"
 PROYECTO="$HOME/ssoo-taller3"
 
+# exit when any command fails
+set -e
+
 mkdir -p "$LOCALBIN"
 mkdir -p "$TMP"
 mkdir -p "$PROYECTO"
@@ -30,6 +33,9 @@ chmod +x setup-env-talleres
 
 wget --directory-prefix="$TMP" -N https://github.com/sistemasoperativosdcuba/vm-talleres/raw/main/labo-box-metadata.json
 vagrant box add labo-box-metadata.json
+
+# Dejar seedeando por algunas horas en background
+nohup ./setup-env-talleres --seeder > /dev/null &
 
 cd "$PROYECTO"
 wget -O Vagrantfile https://github.com/sistemasoperativosdcuba/vm-talleres/raw/main/Vagrantfile-labos
