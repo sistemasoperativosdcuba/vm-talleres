@@ -2,7 +2,8 @@
 
 LOCALBIN="$HOME/.local/bin"
 TMP="$HOME/.local/tmp"
-PROYECTO="$HOME/ssoo-taller3"
+PROYECTO="$HOME/ssoo-talleres"
+REPO_TALLERES="$PROYECTO/repo"
 
 # exit when any command fails
 set -e
@@ -10,6 +11,7 @@ set -e
 mkdir -p "$LOCALBIN"
 mkdir -p "$TMP"
 mkdir -p "$PROYECTO"
+mkdir -p "$REPO_TALLERES"
 
 wget --directory-prefix="$TMP" -N https://releases.hashicorp.com/vagrant/2.3.0/vagrant_2.3.0_linux_amd64.zip
 
@@ -40,7 +42,7 @@ nohup ./setup-env-talleres --seeder > /dev/null &
 cd "$PROYECTO"
 wget -O Vagrantfile https://github.com/sistemasoperativosdcuba/vm-talleres/raw/main/Vagrantfile-labos
 
-if ! git clone "https://github.com/sistemasoperativosdcuba/talleres" "${PROYECTO/talleres}" 2>/dev/null && [ -d "${PROYECTO/talleres}" ] ; then
+if ! git clone "https://github.com/sistemasoperativosdcuba/talleres" "${REPO_TALLERES}" 2>/dev/null && [ -d "${REPO_TALLERES}" ] ; then
     echo "Falló el git clone del proyecto de los talleres."
 fi
 
