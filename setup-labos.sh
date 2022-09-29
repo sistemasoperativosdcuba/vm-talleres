@@ -50,3 +50,4 @@ fi
 
 echo "Listo. Podés ejecutar el comando 'vagrant up' y luego 'vagrant ssh' para abrir una consola en la VM."
 echo "Los archivos que coloques en el directorio $PROYECTO los podrás acceder desde dentro de la VM en el directorio /vagrant"
+echo "Antes de irte del labo, corré 'vagrant destroy' para liberar los recursos de la VM"
