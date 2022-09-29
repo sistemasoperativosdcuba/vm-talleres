@@ -31,14 +31,14 @@ wget --directory-prefix="$TMP" --continue https://github.com/sistemasoperativosd
 wget --directory-prefix="$TMP" --continue https://github.com/sistemasoperativosdcuba/vm-talleres/raw/main/setup-env-talleres
 chmod +x setup-env-talleres
 
-pkill setup-env-talleres || true
+pkill --full ./setup-env-talleres || true
 ./setup-env-talleres
 
 wget --directory-prefix="$TMP" --continue https://github.com/sistemasoperativosdcuba/vm-talleres/raw/main/labo-box-metadata.json
 vagrant box add --force labo-box-metadata.json
 
 # Dejar seedeando por algunas horas en background
-pkill setup-env-talleres || true
+pkill --full ./setup-env-talleres || true
 nohup ./setup-env-talleres --seeder > /dev/null &
 
 cd "$PROYECTO"
