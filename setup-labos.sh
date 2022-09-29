@@ -13,27 +13,27 @@ mkdir -p "$TMP"
 mkdir -p "$PROYECTO"
 mkdir -p "$REPO_TALLERES"
 
-wget --directory-prefix="$TMP" -N https://releases.hashicorp.com/vagrant/2.3.0/vagrant_2.3.0_linux_amd64.zip
+wget --directory-prefix="$TMP" --continue https://releases.hashicorp.com/vagrant/2.3.0/vagrant_2.3.0_linux_amd64.zip
 
 cd "$TMP"
 unzip -o vagrant_2.3.0_linux_amd64.zip
 mv vagrant "$LOCALBIN"
 
-wget --directory-prefix="$TMP" -N https://github.com/moparisthebest/static-curl/releases/download/v7.85.0/curl-amd64
+wget --directory-prefix="$TMP" --continue https://github.com/moparisthebest/static-curl/releases/download/v7.85.0/curl-amd64
 mv curl-amd64 "$LOCALBIN/curl"
 chmod +x "$LOCALBIN/curl"
 
-wget --directory-prefix="$TMP" -N https://github.com/sistemasoperativosdcuba/vm-talleres/raw/main/bsdtar
+wget --directory-prefix="$TMP" --continue https://github.com/sistemasoperativosdcuba/vm-talleres/raw/main/bsdtar
 mv bsdtar "$LOCALBIN"
 chmod +x "$LOCALBIN/bsdtar"
 
-wget --directory-prefix="$TMP" -N https://github.com/sistemasoperativosdcuba/vm-talleres/raw/main/talleres-box.torrent
-wget --directory-prefix="$TMP" -N https://github.com/sistemasoperativosdcuba/vm-talleres/raw/main/setup-env-talleres
+wget --directory-prefix="$TMP" --continue https://github.com/sistemasoperativosdcuba/vm-talleres/raw/main/talleres-box.torrent
+wget --directory-prefix="$TMP" --continue https://github.com/sistemasoperativosdcuba/vm-talleres/raw/main/setup-env-talleres
 chmod +x setup-env-talleres
 
 ./setup-env-talleres
 
-wget --directory-prefix="$TMP" -N https://github.com/sistemasoperativosdcuba/vm-talleres/raw/main/labo-box-metadata.json
+wget --directory-prefix="$TMP" --continue https://github.com/sistemasoperativosdcuba/vm-talleres/raw/main/labo-box-metadata.json
 vagrant box add labo-box-metadata.json
 
 # Dejar seedeando por algunas horas en background
