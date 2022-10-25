@@ -42,12 +42,21 @@ pkill --full ./setup-env-talleres || true
 nohup ./setup-env-talleres --seeder > /dev/null &
 
 cd "$PROYECTO"
-wget -O Vagrantfile https://github.com/sistemasoperativosdcuba/vm-talleres/raw/main/Vagrantfile-labos
+# Elimino viejo Vagrantfile, mejor que usen el del repo
+rm -f Vagrantfile || true
 
-if ! git clone "https://github.com/sistemasoperativosdcuba/talleres" "${REPO_TALLERES}" 2>/dev/null && [ -d "${REPO_TALLERES}" ] ; then
-    echo "Falló el git clone del proyecto de los talleres."
+if ! git clone "https://git.exactas.uba.ar/pmontepagano/talleres-de-sistemas-operativos.git" "${REPO_TALLERES}" 2>/dev/null && [ -d "${REPO_TALLERES}" ] ; then
+    echo "Falló el git clone del proyecto de los talleres. Intentaremos hacer un pull..."
+    cd $REPO_TALLERES
+    if git pull ; then
+        echo "Repositorio de talleres actualizado."
+    else
+        echo "ERROR al intentar actualizar el repositorio de talleres. Fijate de clonar el repositorio en ~/${REPO_TALLERES}"
+    fi
 fi
 
-echo "Listo. Podés ejecutar el comando 'vagrant up' y luego 'vagrant ssh' para abrir una consola en la VM."
+echo "Listo. Andá primero al directorio donde está el repo de talleres con el siguiente comando:"
+echo "cd ~/${REPO_TALLERES}"
+echo "Una vez ahí, podés ejecutar el comando 'vagrant up', esperar un poco a que la VM levante, y luego 'vagrant ssh' para abrir una consola en la VM."
 echo "Los archivos que coloques en el directorio $PROYECTO los podrás acceder desde dentro de la VM en el directorio /vagrant"
 echo "Antes de irte del labo, corré 'vagrant destroy' para liberar los recursos de la VM"
