@@ -56,7 +56,7 @@ if ! git clone "https://git.exactas.uba.ar/pmontepagano/talleres-de-sistemas-ope
 fi
 
 echo "Listo. Andá primero al directorio donde está el repo de talleres con el siguiente comando:"
-echo "cd ~/${REPO_TALLERES}"
+echo "cd ~${REPO_TALLERES}"
 echo "Una vez ahí, podés ejecutar el comando 'vagrant up', esperar un poco a que la VM levante, y luego 'vagrant ssh' para abrir una consola en la VM."
 echo "Los archivos que coloques en el directorio $PROYECTO los podrás acceder desde dentro de la VM en el directorio /vagrant"
 echo "Antes de irte del labo, corré 'vagrant destroy' para liberar los recursos de la VM"
