@@ -15,8 +15,8 @@ mkdir -p "$REPO_TALLERES"
 
 cd "$TMP"
 
-wget --directory-prefix="$TMP" --continue https://github.com/sistemasoperativosdcuba/vm-talleres/raw/main/so-labo-seginf.torrent
-wget --directory-prefix="$TMP" --continue https://github.com/sistemasoperativosdcuba/vm-talleres/raw/main/setup-env-talleres
+wget --directory-prefix="$TMP" -N https://github.com/sistemasoperativosdcuba/vm-talleres/raw/main/so-labo-seginf.torrent
+wget --directory-prefix="$TMP" -N https://github.com/sistemasoperativosdcuba/vm-talleres/raw/main/setup-env-talleres
 chmod +x setup-env-talleres
 
 pkill --full ./setup-env-talleres || true
