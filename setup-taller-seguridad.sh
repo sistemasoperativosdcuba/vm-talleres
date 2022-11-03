@@ -20,11 +20,11 @@ wget --directory-prefix="$TMP" -N https://github.com/sistemasoperativosdcuba/vm-
 chmod +x setup-env-talleres
 
 pkill --full ./setup-env-talleres || true
-./setup-env-talleres --torrent so-labo-seginf.torrent
+./setup-env-talleres --torrentfile so-labo-seginf.torrent
 
 # Dejar seedeando por algunas horas en background
 pkill --full ./setup-env-talleres || true
-nohup ./setup-env-talleres --seeder --torrent so-labo-seginf.torrent > /dev/null &
+nohup ./setup-env-talleres --seeder --torrentfile so-labo-seginf.torrent > /dev/null &
 
 VBoxManage import so-labo-seginf.ova
 
