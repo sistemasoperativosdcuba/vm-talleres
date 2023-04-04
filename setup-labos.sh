@@ -61,8 +61,32 @@ if ! git clone "https://github.com/sistemasoperativosdcuba/talleres.git" "${REPO
     fi
 fi
 
-echo "Listo. Andá primero al directorio donde está el repo de talleres con el siguiente comando:"
+
+echo ""
+echo ""
+echo ""
+echo ""
+
+
+echo -e "\e[32m"
+echo "---------------------------------------------------------------"
+echo "        INSTRUCCIONES: LEE ATENTAMENTE LO SIGUIENTE:           "
+echo "---------------------------------------------------------------"
+echo -e "\e[33m"
+echo "Andá primero al directorio donde está el repo de talleres con el siguiente comando:"
 echo "cd ~${REPO_TALLERES}"
+echo ""
 echo "Una vez ahí, podés ejecutar el comando 'vagrant up', esperar un poco a que la VM levante, y luego 'vagrant ssh' para abrir una consola en la VM."
 echo "Los archivos que coloques en el directorio $PROYECTO los podrás acceder desde dentro de la VM en el directorio /vagrant"
 echo "Antes de irte del labo, corré 'vagrant destroy' para liberar los recursos de la VM"
+
+echo -e "\e[31m"
+echo ""
+echo ""
+echo "--------------------------------------------------------------"
+echo "            PARA TERMINAR LA INSTALACIÓN DEBERÁS              "
+echo "           CERRAR LA TERMINAL Y ABRIRLA NUEVAMENTE            "
+echo "        >>>>>>> ACORDATE LAS INSTRUCCIONES <<<<<<<<<<         "
+echo "--------------------------------------------------------------"
+echo ""
+
