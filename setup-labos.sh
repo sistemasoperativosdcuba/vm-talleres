@@ -27,7 +27,11 @@ wget --directory-prefix="$TMP" -N https://github.com/sistemasoperativosdcuba/vm-
 cp bsdtar "$LOCALBIN"
 chmod +x "$LOCALBIN/bsdtar"
 
+# ADD $LOCALBIN to .bashrc
 export PATH="$LOCALBIN:$PATH"
+if ! grep -q '"PATH='$LOCALBIN':$PATH"' $HOME/.bashrc; then
+    echo '"PATH='$LOCALBIN':$PATH"' >> $HOME/.bashrc
+fi
 
 wget --directory-prefix="$TMP" -N https://github.com/sistemasoperativosdcuba/vm-talleres/raw/main/talleres-box.torrent
 wget --directory-prefix="$TMP" -N https://github.com/sistemasoperativosdcuba/vm-talleres/raw/main/setup-env-talleres
