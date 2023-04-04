@@ -27,6 +27,8 @@ wget --directory-prefix="$TMP" -N https://github.com/sistemasoperativosdcuba/vm-
 cp bsdtar "$LOCALBIN"
 chmod +x "$LOCALBIN/bsdtar"
 
+export PATH="$LOCALBIN:$PATH"
+
 wget --directory-prefix="$TMP" -N https://github.com/sistemasoperativosdcuba/vm-talleres/raw/main/talleres-box.torrent
 wget --directory-prefix="$TMP" -N https://github.com/sistemasoperativosdcuba/vm-talleres/raw/main/setup-env-talleres
 chmod +x setup-env-talleres
@@ -35,7 +37,7 @@ pkill --full ./setup-env-talleres || true
 ./setup-env-talleres
 
 wget --directory-prefix="$TMP" -N https://github.com/sistemasoperativosdcuba/vm-talleres/raw/main/labo-box-metadata.json
-vagrant box add --force labo-box-metadata.json
+$LOCALBIN/vagrant box add --force labo-box-metadata.json
 
 # Dejar seedeando por algunas horas en background
 pkill --full ./setup-env-talleres || true
