@@ -45,7 +45,7 @@ cd "$PROYECTO"
 # Elimino viejo Vagrantfile, mejor que usen el del repo
 rm -f Vagrantfile || true
 
-if ! git clone "https://git.exactas.uba.ar/pmontepagano/talleres-de-sistemas-operativos.git" "${REPO_TALLERES}" 2>/dev/null && [ -d "${REPO_TALLERES}" ] ; then
+if ! git clone "https://github.com/sistemasoperativosdcuba/talleres.git" "${REPO_TALLERES}" 2>/dev/null && [ -d "${REPO_TALLERES}" ] ; then
     echo "Falló el git clone del proyecto de los talleres. Intentaremos hacer un pull..."
     cd $REPO_TALLERES
     if git pull ; then
